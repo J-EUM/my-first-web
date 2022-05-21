@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{font-family: serif}
+h1, #menu, #menu ul li{margin: 20px 0;}
+h1{text-align: center;}
+.page-wrapper{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+@media(max-width:780px){
+  .page-wrapper{display: block;}
+  #menu ul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.contents{
+  display: grid;
+  place-items: center;
+}
+li{
+  text-align: center;
+  list-style: none;
+}
+a{
+  color: grey;
+  text-decoration: none;
+}
+#menu ul li a:hover{color:red;}
+.current-page{color: black;}
