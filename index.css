@@ -1,26 +1,42 @@
-.img-wrapper{
+*{
+  margin: 0;
+  padding: 0;
+}
+body{font-family: serif}
+header, #menu, #menu ul li{margin: 20px 0;}
+h1{text-align: center;}
+.page-wrapper{
   display: grid;
-  grid-template-columns: repeat(3, 200px);
-  grid-template-rows: repeat(3,200px);
-  grid-column-gap: 3px;
-  grid-row-gap: 3px;
+  grid-template-columns: 150px 1fr;
 }
-img{
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  opacity: 0.7;
+.contents{
+  padding-bottom: 100px;
+  display: grid;
+  place-items: center;
 }
-img:hover{opacity: 1;}
-@media(min-width:1080px){
-  .img-wrapper{
-    grid-template-columns: repeat(3, 300px);
-    grid-template-rows: repeat(3, 300px);
+@media(max-width:780px){
+  .page-wrapper{display: block;}
+  #menu ul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
-@media(max-width:780px) {
-  .img-wrapper{
-    grid-template-columns: repeat(1, 400px);
-    grid-template-rows: repeat(9,400px);
-  }
+
+li{
+  text-align: center;
+  list-style: none;
+}
+a { text-decoration: none; }
+#menu a { color: grey; }
+#menu a:hover { color:red; }
+#menu .current-page { color: black; }
+#menu #contact-list { margin-top: 15px;
+  display: none; }
+/*
+왜 그냥 .current-page나 #contact-list로 하면 효과가 안먹을까
+*/
+#contact-list a:hover { color: blueviolet; }
+#contact-toggle { color: grey; }
+#contact-toggle:hover {
+  color: red;
 }

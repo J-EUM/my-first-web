@@ -3,19 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>WELCOME!-J EUM</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
   </head>
   <!--
   참고한링크
   https://joshua-dev-story.blogspot.com/2020/11/javascript-css-scroll-animation.html#toc-65-1
   -->
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; }     /*튀어나오지 않게*/
     body { margin: 0px; }
-    main { padding-bottom: 100px; }
+    main {
+      width: 100%; 
+      padding-bottom: 100px; 
+    }
     section {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /*간격 같게*/
       padding: 5%;
     }
     section div {
@@ -29,6 +32,7 @@
       opacity: 0;
       transition: all .5s ease;
     }
+  
 
     /* 아래에서 위로 페이드 인 */
     .sa-up {
@@ -54,13 +58,6 @@
         </ul>
       </nav>
       <div class="contents">
-      <!--  우리고양이<br>
-        넷플: f1, 브배, 배콜사, 홈랜드, 셀링선셋<br>
-        영화: 매드맥스 나를찾아줘 매트릭스 메멘토 인셉션<br>
-        여행<br>
-        겨울<br>
-
-      -->
         <main>
           <section>
             <div class="sa sa-up">우리고양이</div>
