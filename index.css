@@ -1,0 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{font-family: serif}
+header, #menu, #menu ul li{margin: 20px 0;}
+h1{text-align: center;}
+.page-wrapper{
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+.contents{
+  padding-bottom: 100px;
+  display: grid;
+  place-items: center;
+}
+@media(max-width:780px){
+  .page-wrapper{display: block;}
+  #menu ul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+li{
+  text-align: center;
+  list-style: none;
+}
+a { text-decoration: none; }
+#menu a { color: grey; }
+#menu a:hover { color:red; }
+#menu .current-page { color: black; }
+#menu #contact-list { margin-top: 15px;
+  display: none; }
+/*
+왜 그냥 .current-page나 #contact-list로 하면 효과가 안먹을까
+*/
+#contact-list a:hover { color: blueviolet; }
+#contact-toggle { color: grey; }
+#contact-toggle:hover {
+  color: red;
+}

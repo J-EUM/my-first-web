@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WELCOME!-J EUM</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <!--
+  참고한링크
+  https://joshua-dev-story.blogspot.com/2020/11/javascript-css-scroll-animation.html#toc-65-1
+  -->
+  <style>
+    * { box-sizing: border-box; }     /*튀어나오지 않게*/
+    body { margin: 0px; }
+    main {
+      width: 100%; 
+      padding-bottom: 100px; 
+    }
+    section {
+      display: flex;
+      justify-content: space-between; /*간격 같게*/
+      padding: 5%;
+    }
+    section div {
+      background-color: lightgrey;
+      width: 23%;
+      height: 200px;
+    }
+
+    /* Scroll Animation (sa, 스크롤 애니메이션) */
+    .sa {
+      opacity: 0;
+      transition: all .5s ease;
+    }
+  
+
+    /* 아래에서 위로 페이드 인 */
+    .sa-up {
+      transform: translate(0, 100px);
+    }
+
+    .sa.show {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+  <body>
+    <header>
+      <h1>J EUM</h1>
+    </header>
+    <div class="page-wrapper">
+      <nav id="menu">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="introduction.html">INTRODUCTION</a></li>
+          <li><a href="like.html" class="current-page">THINGS I LIKE</a></li>
+          <li><a href="mailto:eumjungmin1@gmail.com" title="email me!">CONTACT</a></li>
+        </ul>
+      </nav>
+      <div class="contents">
+        <main>
+          <section>
+            <div class="sa sa-up">우리고양이</div>
+            <div class="sa sa-up" data-sa-delay="200">넷플다큐 f1</div>
+            <div class="sa sa-up" data-sa-delay="400">브배 배콜사</div>
+            <div class="sa sa-up" data-sa-delay="600">홈랜드</div>
+          </section>
+          <section>
+            <div class="sa sa-up" data-sa-delay="800">셀링선셋</div>
+            <div class="sa sa-up" data-sa-delay="1000">영화</div>
+            <div class="sa sa-up" data-sa-delay="1200">여행</div>
+            <div class="sa sa-up" data-sa-delay="1400">겨울</div>
+          </section>
+        </main>
+
+        <script>
+          // Scroll Animation (sa, 스크롤 애니메이션)
+          const saDefaultMargin = 300;
+          let saTriggerMargin = 0;
+          let saTriggerHeight = 0;
+          const saElementList = document.querySelectorAll('.sa');
+
+          const saFunc = function() {
+            for (const element of saElementList) {
+              if (!element.classList.contains('show')) {
+                if (element.dataset.saMargin) {
+                  saTriggerMargin = parseInt(element.dataset.saMargin);
+                } else {
+                  saTriggerMargin = saDefaultMargin;
+                }
+
+                if (element.dataset.saTrigger) {
+                  saTriggerHeight = document.querySelector(element.dataset.saTrigger).getBoundingClientRect().top + saTriggerMargin;
+                } else {
+                  saTriggerHeight = element.getBoundingClientRect().top + saTriggerMargin;
+                }
+
+                if (window.innerHeight > saTriggerHeight) {
+                  let delay = (element.dataset.saDelay) ? element.dataset.saDelay : 0;
+                  setTimeout(function() {
+                    element.classList.add('show');
+                  }, delay);
+                }
+              }
+            }
+          }
+
+          window.addEventListener('load', saFunc);
+          window.addEventListener('scroll', saFunc);
+        </script>
+        <!--여기까지-->
+      </div>
+    </div>
+
+  </body>
+</html>
